@@ -1,0 +1,29 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+}
+
+.navbar-wrapper {
+    display: flex;
+    justify-content: center;
+    background: rgb(187, 131, 26);
+}
+
+.navbar-container ul {
+    display: inline-flex;
+    gap: 1em;
+}
+
+.navbar-container ul li {
+    list-style-type: none;
+}
+
+.navbar-container ul li a {
+    color: white;
+    text-decoration: none;
+}
