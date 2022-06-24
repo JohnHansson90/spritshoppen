@@ -2,28 +2,94 @@
     box-sizing: border-box;
 }
 
+:root {
+    --brown: #672800;
+    --lightbrown: #D2A11B;
+    --white: #F6F6F6;
+    --black: #1b1b1b;
+    --btn-hover: #b98e18;
+}
+
 body {
     height: 100vh;
     width: 100vw;
     margin: 0;
 }
 
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
 .navbar-wrapper {
     display: flex;
     justify-content: center;
-    background: rgb(187, 131, 26);
+    background: var(--lightbrown);
 }
 
-.navbar-container ul {
+.navbar-container {
     display: inline-flex;
-    gap: 1em;
+    width: 90%;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    color: var(--black);
 }
 
-.navbar-container ul li {
-    list-style-type: none;
+.navbar-menubutton__img {
+    max-width: 32px;
+    max-height: 32px;
 }
 
-.navbar-container ul li a {
-    color: white;
-    text-decoration: none;
+.navbar-menubutton {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.rotate {
+    transform: rotate(-135deg)
+}
+
+
+/* Måste fixa att den hela tiden ligger bakom navbar */
+@keyframes menuDropDown {
+    0% { 
+        transform: translateY(-100%);
+    }
+    100% { 
+        transform: translateY(0%); 
+    }
+}
+
+.navbar-menu {
+    position: absolute;
+    right: 0;
+    top: 50px;
+    width: 100%;
+    background: var(--lightbrown);
+    animation: menuDropDown .4s ease-in-out;
+}
+
+.navbar-menu ul li a {
+    color: var(--black);
+}
+
+.navbar-menu ul {
+    padding: 0;
+}
+
+.navbar-menu ul li {
+    padding: 10px 25px;
+    /* border-top: 1px solid rgb(59, 59, 59); */
+    margin: 1px 0;
+}
+
+.navbar-menu ul li:hover {
+    background-color: var(--btn-hover);
 }
