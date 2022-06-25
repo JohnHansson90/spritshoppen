@@ -2,6 +2,7 @@ import React from 'react'
 import '../../Styles/global.css'
 
 const Card = ({props}) => {
+
   return (
     <div className="card-wrapper">
       <div className="card-container">
