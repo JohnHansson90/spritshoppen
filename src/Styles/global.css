@@ -110,6 +110,7 @@ a {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    max-width: 100%;
 }
 
 .card-product-details {
@@ -119,7 +120,10 @@ a {
 }
 
 .card-image img {
-    max-width: 100%;
+    width: 100%;
+    /* height: %*; */
+    object-fit: cover;
+
 }
 
 .hero-image {

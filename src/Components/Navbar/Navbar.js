@@ -35,10 +35,10 @@ const Navbar = () => {
                             <Link to="/drycker">Drycker</Link>
                         </li>
                         <li>
-                            <a href="#">Öl</a>
+                            <Link to="/beer">Öl</Link>
                         </li>
                         <li>
-                            <a href="#">Whiskey</a>
+                            <Link to="/whiskey">Whiskey</Link>
                         </li>
                     </ul>
                 </div>
