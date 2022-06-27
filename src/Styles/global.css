@@ -28,6 +28,7 @@ a {
     display: flex;
     justify-content: center;
     background: var(--lightbrown);
+    box-shadow: 0px -18px 20px 18px #1b1b1b;
 }
 
 .navbar-container {
@@ -94,18 +95,21 @@ a {
     background-color: var(--btn-hover);
 }
 
+
+.drycker-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .2em;
+    padding: 1.5em .2em;
+}
+
 /* ########### CARD ############ */
 
 .card-wrapper {
     display: flex;
-}
-
-.card-container {
-    display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    max-width: 100%;
 }
 
 .card-product-details {
@@ -115,5 +119,9 @@ a {
 }
 
 .card-image img {
-    max-width: 90vw;
+    max-width: 100%;
+}
+
+.hero-image {
+    max-width: 100%;
 }

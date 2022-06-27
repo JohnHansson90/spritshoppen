@@ -6,7 +6,7 @@ const Drycker = () => {
 
 
   return (
-    <div>
+    <div className="drycker-container">
       {
         drycker.map(item => 
           <Card props={item} key={item.name} />
