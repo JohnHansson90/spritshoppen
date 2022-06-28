@@ -13,7 +13,8 @@ const Navbar = () => {
 
 
     return (
-        <div className="navbar-wrapper" onMouseLeave={() => showMenu && showMenuBtn()}>
+        <div className="navbar-wrapper" onMouseLeave={() => showMenu && showMenuBtn()} onClick={showMenuBtn} >
+
             <div className="navbar-container">
                 <div className="navbar-logotype">
                     <h3>SpritShoppen</h3>
@@ -28,18 +29,26 @@ const Navbar = () => {
                 showMenu &&
                 <div className="navbar-menu" >
                     <ul>
-                        <li>
-                            <a href="#">Hem</a>
-                        </li>
-                        <li>
-                            <Link to="/drycker">Drycker</Link>
-                        </li>
-                        <li>
-                            <Link to="/beer">Öl</Link>
-                        </li>
-                        <li>
-                            <Link to="/whiskey">Whiskey</Link>
-                        </li>
+                        <Link to="/">
+                            <li>
+                                Hem
+                            </li>
+                        </Link>
+                        <Link to="/drycker">
+                            <li>
+                                Drycker
+                            </li>
+                        </Link>
+                        <Link to="/beer">
+                            <li>
+                                Öl
+                            </li>
+                        </Link>
+                        <Link to="/whiskey">
+                            <li>
+                                Whiskey
+                            </li>
+                        </Link>
                     </ul>
                 </div>
             }

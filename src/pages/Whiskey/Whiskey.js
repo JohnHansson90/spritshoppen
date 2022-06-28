@@ -5,11 +5,11 @@ import drycker from '../../API/drycker.json'
 const Whiskey = () => {
   return (
     <div className="drycker-container">
-        {
-            drycker.filter(item => item.type == "whiskey").map(dryck => 
-                <Card props={dryck} key={dryck.id}/> 
-            )
-        }
+      {
+        drycker.filter(item => item.type == "whiskey").map(dryck =>
+          < Card props={dryck} key={dryck.id} />
+        )
+      }
     </div>
   )
 }

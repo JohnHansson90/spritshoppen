@@ -4,7 +4,8 @@
 
 :root {
     --brown: #672800;
-    --lightbrown: #D2A11B;
+    --lightbrown: #d2a11b;
+    --lightbrownopacity: rgba(210, 161, 27, 0.75);
     --white: #F6F6F6;
     --black: #1b1b1b;
     --btn-hover: #b98e18;
@@ -18,6 +19,7 @@ body {
 
 li {
     list-style: none;
+    color: var(--black);
 }
 
 a {
@@ -39,6 +41,7 @@ a {
     position: relative;
     color: var(--black);
 }
+
 
 .navbar-menubutton__img {
     max-width: 32px;
@@ -73,7 +76,7 @@ a {
     right: 0;
     top: 50px;
     width: 100%;
-    background: var(--lightbrown);
+    background: var(--lightbrownopacity);
     animation: menuDropDown .4s ease-in-out;
 }
 
