@@ -5,7 +5,8 @@
         "image": "https://images.unsplash.com/photo-1618183479302-1e0aa382c36b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
         "price": 23.90,
         "taste": "Ljummen och syrlig",
-        "type": "beer"
+        "type": "beer",
+        "country": "Sweden"
     },
     {
         "id": 1,
@@ -13,7 +14,8 @@
         "image": "https://images.unsplash.com/photo-1620304724320-aaaef7f9f499?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80",
         "price": 299,
         "taste": "Handsprit möter diskmedel",
-        "type": "whiskey"
+        "type": "whiskey",
+        "country": "Sweden"
     },
     {
         "id": 2,
@@ -21,7 +23,8 @@
         "image": "https://images.unsplash.com/photo-1586993451228-09818021e309?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
         "price": 13.90,
         "taste": "Runt och söt",
-        "type": "beer"
+        "type": "beer",
+        "country": "Sweden"
     },
     {
         "id": 3,
@@ -29,6 +32,7 @@
         "image": "https://images.unsplash.com/photo-1586734565008-fbdbc166fd6c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1216&q=80",
         "price": 1499,
         "taste": "Badhusvatten med körsbärstoner",
-        "type": "whiskey"
+        "type": "whiskey",
+        "country": "Sweden"
     }
 ]
