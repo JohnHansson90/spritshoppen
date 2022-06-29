@@ -31,7 +31,7 @@ const Card = ({ props }) => {
           image: props.image,
         }}
         className="card-wrapper"
-        >
+      >
         <div className="card-container">
           <div className="card-image-container">
             <div className="card-image">
@@ -46,23 +46,27 @@ const Card = ({ props }) => {
                 </p>
                 <p className="card-product-details-id">Nr: {props.id}</p>
               </div>
-                <div className="card-product-country-price">
-                  <p className="card-product-country">{props.country}</p>
-                  <p className="card-product-price no-margin">
-
-                    {
-                      props.price % 1 != 0 ? props.price.toFixed(2) : 
-                      `${props.price}:-`
-                    }
-
-                  </p>
-                </div>
-                <p className="card-product-taste">{props.taste}</p>
+              <div className="card-product-country-price">
+                <p className="card-product-country">{props.country}</p>
+                <p className="card-product-price no-margin">
+                  {props.price % 1 != 0
+                    ? props.price.toFixed(2)
+                    : `${props.price}:-`}
+                </p>
               </div>
+              <p className="card-product-taste">{props.taste}</p>
             </div>
           </div>
-        </NavLink>
-      <button onClick={() => saveToFavorites()}>Save</button>
+        </div>
+      </NavLink>
+      <div className="card-wrapper-container">
+        <button
+          className="card-wrapper-button"
+          onClick={() => saveToFavorites()}
+        >
+          ☞
+        </button>
+      </div>
     </div>
   );
 };
