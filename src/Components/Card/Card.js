@@ -54,8 +54,8 @@ const Card = ({ props }) => {
             <p className="card-product-taste">{props.taste}</p>
           </div>
         </div>
-        <button onClick={() => saveToFavorites()}>Save</button>
       </div>
+      <button onClick={() => saveToFavorites()}>☞</button>
     </NavLink>
   );
 };
