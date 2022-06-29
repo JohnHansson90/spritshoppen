@@ -10,8 +10,8 @@ const Card = ({ props }) => {
   const { state } = location;
   const [favoriteList, setFavoritesList] = useRecoilState(favoritesAtom);
 
-  const removeFromFavorites = () => {
-    const newList = favoriteList.filter((item) => item.id !== state.id);
+  const removeFromFavorites = (id) => {
+    const newList = favoriteList.filter((item) => item.id !== id);
     setFavoritesList(newList);
   };
   return (
@@ -47,7 +47,7 @@ const Card = ({ props }) => {
           </div>
         </div>
       </NavLink>
-      <button onClick={() => removeFromFavorites()}>🧻</button>
+      <button onClick={() => removeFromFavorites(props.id)}>🧻</button>
     </div>
   );
 };
