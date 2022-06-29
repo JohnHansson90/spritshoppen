@@ -180,6 +180,7 @@ a {
     line-height: 19px;
     letter-spacing: 1.5px;
     text-transform: uppercase;
+   
 }
 
 .card-image-container {
@@ -203,4 +204,109 @@ a {
 
 .hero-image {
     max-width: 100%;
+}
+
+/* ########### PRODUCTS ########### */ 
+
+
+.product-wrapper {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    display: block;
+    line-height: 1.5;
+    outline: none;
+}
+
+.product-image {
+    max-width: 300px;
+    max-height: 252px;
+}
+
+.product-image-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(249, 249, 249);
+}
+
+.product-image-container {
+    width: 100%;
+    max-width: 1208px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 24px;
+    padding-right: 24px;
+    display: block;
+    padding-bottom: 12px;
+}
+
+.product-image-container-inner {
+    display: flex;
+    padding-left: 8px;
+    padding-right: 8px;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+.product-button-container > button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0px;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 24px;
+    text-align: center;
+    cursor: pointer;
+    background: rgb(211, 192, 192);
+    color: rgb(9, 87, 65);
+    padding: 8px 16px 8px 24px;
+    border-radius: 8px;
+}
+
+.product-type-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+}
+
+.product-type-container {
+    width: 100%;
+    max-width: 1208px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 24px;
+    padding-right: 24px;
+    display: block;
+    padding-top: 12px;
+}
+
+.product-type-information-container {
+    margin-bottom: 12px;
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+}
+
+.product-type-price {
+    padding: 12px 0px 16px;
+    border-bottom: 1px solid rgba(45, 41, 38, 0.1);
+    border-top: 1px solid rgba(45, 41, 38, 0.1);
+    border-right-color: rgba(45, 41, 38, 0.1);
+    border-left-color: rgba(45, 41, 38, 0.1);
+}
+
+.product-taste-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 12px 0px 16px;
+    border-bottom: 1px solid rgba(45, 41, 38, 0.1);
+    border-top: 1px solid rgba(45, 41, 38, 0.1);
+    border-right-color: rgba(45, 41, 38, 0.1);
+    border-left-color: rgba(45, 41, 38, 0.1);
+    gap: 2.5rem;
 }

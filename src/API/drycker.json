@@ -6,7 +6,7 @@
         "price": 23.90,
         "taste": "Ljummen och syrlig",
         "type": "beer",
-        "country": "Sweden"
+        "country": "Sverige"
     },
     {
         "id": 1,
@@ -15,7 +15,7 @@
         "price": 299,
         "taste": "Handsprit möter diskmedel",
         "type": "whiskey",
-        "country": "Sweden"
+        "country": "Sverige"
     },
     {
         "id": 2,
@@ -24,7 +24,7 @@
         "price": 13.90,
         "taste": "Runt och söt",
         "type": "beer",
-        "country": "Sweden"
+        "country": "Sverige"
     },
     {
         "id": 3,
@@ -33,6 +33,6 @@
         "price": 1499,
         "taste": "Badhusvatten med körsbärstoner",
         "type": "whiskey",
-        "country": "Sweden"
+        "country": "Sverige"
     }
 ]

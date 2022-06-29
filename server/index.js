@@ -6,9 +6,9 @@ const port = '1337'
 const URL = 'mongodb+srv://johanbeskow:beskow123@cluster0.igphiur.mongodb.net/?retryWrites=true&w=majority'
 
 
-MongoClient.connect(URL, 
+MongoClient.connect(URL,
     {
-        useNewUrlParser: true, 
+        useNewUrlParser: true,
         useUnifiedTopology: true
     }
 ).then(client => {
