@@ -8,6 +8,7 @@
     --white: #F6F6F6;
     --black: #1b1b1b;
     --btn-hover: hsl(44, 77%, 41%);
+    --fav-red: rgb(212, 69, 69);
 }
 
 .center {
@@ -37,8 +38,9 @@ a {
 .navbar-wrapper {
     display: flex;
     justify-content: center;
-    background: var(--lightbrown);
-    box-shadow: 0px -18px 20px 18px #1b1b1b;
+    /* background: var(--lightbrown); */
+    box-shadow: 0px -20px 11px 18px #1b1b1b;
+    padding: 0 .5em;
 }
 
 .navbar-container {
@@ -122,7 +124,7 @@ a {
 /* Måste fixa att den hela tiden ligger bakom navbar */
 @keyframes menuDropDown {
     0% {
-        transform: translateY(-100%);
+        transform: translateY(-90%);
     }
 
     100% {
@@ -130,12 +132,18 @@ a {
     }
 }
 
+.navbar-menu-empty-fav {
+    padding: 1em;
+    text-align: center;
+    background: var(--white);
+}
+
 .navbar-menu {
-    position: absolute;
+    /* position: absolute;
     right: 0;
-    top: 50px;
-    width: 100%;
-    background: var(--lightbrown);
+    top: 62px; */
+    width: 90%;
+    background: var(--white);
     animation: menuDropDown .4s ease-in-out;
 }
 
@@ -179,16 +187,17 @@ a {
     color: var(--black);
 }
 
-.card-wrapper-container {
+.card-additional-buttons {
     display: flex;
     flex-grow: 1;
-    background-color: grey;
+}
+
+.card-additional-buttons-favIcon {
+    fill: red;
 }
 
 .card-wrapper-button {
     border: none;
-    background-color: rgba(161, 144, 144, 0.282);
-    border-radius: 50%;
     height: 30px;
     right: 18px;
     top: 10px;

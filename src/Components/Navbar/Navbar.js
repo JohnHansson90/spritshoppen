@@ -5,11 +5,21 @@ import menuBtn from "../../assets/menubtn.png";
 import favBtn from "../../assets/likeBtn.png";
 import { Link } from "react-router-dom";
 import FavCard from "../FavoriteCard/FavCard";
+import Backdrop from '@mui/material/Backdrop';
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [showFavoritesMenu, setShowFavoritesMenu] = useState(false);
   const [favoriteList] = useRecoilState(favoritesAtom);
+  const [showBackdrop, setShowBackdrop] = useState(false);
+
+  const closeBackdrop = () => {
+      setShowBackdrop(false)
+  }
+
+  const openBackdrop = () => {
+      setShowBackdrop(true)
+  }
 
   const showMenuBtn = () => {
     setShowMenu(!showMenu);
@@ -19,6 +29,7 @@ const Navbar = () => {
   const showFavorites = () => {
     setShowFavoritesMenu(!showFavoritesMenu);
     showMenu && setShowMenu(!showMenu);
+    openBackdrop()
   };
 
   return (
@@ -49,22 +60,42 @@ const Navbar = () => {
           <div className="fav-counter">{favoriteList.length}</div>
         </button>
       </div>
-      {showFavoritesMenu && (
-        <div className="navbar-menu">
-          {favoriteList.map((favorite) => (
-            <FavCard props={favorite} key={favorite.id} />
-          ))}
-        </div>
+      {showBackdrop && (
+          <Backdrop
+          sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
+          open={showBackdrop}
+          onClick={closeBackdrop}
+        >
+            <div className="navbar-menu">
+                {
+                    favoriteList.length > 0 ?
+                        
+                        favoriteList.map((favorite) => (
+                            <FavCard props={favorite} key={favorite.id} />
+                        ))
+                        
+                    :
+                    <div className="navbar-menu-empty-fav">
+                        <h3>Listan är tom.</h3>
+                        <p>Prova lägg till några favoriter</p>
+                    </div>
+                }
+            </div>
+        </Backdrop>
       )}
       {showMenu && (
-        <div className="navbar-menu">
+        <div className="navbar-menu" onClick={showMenuBtn}>
           <ul>
-            <Link to="/">
-              <li>Hem</li>
-            </Link>
-            <Link to="/drycker">
-              <li>Drycker</li>
-            </Link>
+            <li>
+                <Link to="/">
+                    Hem
+                </Link>
+            </li>
+            <li>
+                <Link to="/drycker">
+                    Drycker      
+                </Link>
+            </li>
             <li>
               <Link to="/beer">Öl</Link>
             </li>

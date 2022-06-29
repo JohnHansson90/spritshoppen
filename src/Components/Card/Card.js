@@ -4,11 +4,18 @@ import "../../Styles/global.css";
 import { useLocation } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import favoritesAtom from "../../atoms/NavbarAtoms";
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
 const Card = ({ props }) => {
   const location = useLocation();
   const { state } = location;
   const [favoriteList, setFavoritesList] = useRecoilState(favoritesAtom);
+
+  const removeFromFavorites = () => {
+    const newList = favoriteList.filter((item) => item.id !== props.id);
+    setFavoritesList(newList);
+  }
 
   const saveToFavorites = () => {
     const newFavoriteList = [...favoriteList];
@@ -59,13 +66,24 @@ const Card = ({ props }) => {
           </div>
         </div>
       </NavLink>
-      <div className="card-wrapper-container">
-        <button
+      <div className="card-additional-buttons">
+        {
+          favoriteList.find((item) => item.id === props.id) ? 
+          <button
           className="card-wrapper-button"
-          onClick={() => saveToFavorites()}
-        >
-          ☞
-        </button>
+          onClick={() => removeFromFavorites()}
+          >
+            <FavoriteIcon sx={{ color: "var(--fav-red)" }} />
+          </button>
+          : 
+          <button
+            className="card-wrapper-button"
+            onClick={() => saveToFavorites()}
+          >
+            <FavoriteBorderIcon className="card-additional-buttons-favIcon"/>
+          </button>
+
+        }
       </div>
     </div>
   );
