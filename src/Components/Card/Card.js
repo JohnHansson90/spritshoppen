@@ -12,51 +12,58 @@ const Card = ({ props }) => {
 
   const saveToFavorites = () => {
     const newFavoriteList = [...favoriteList];
-    newFavoriteList.push(state);
+    newFavoriteList.push(props);
     setFavoritesList(newFavoriteList);
   };
 
   return (
     // Vad händer i NavLinken?
-    <NavLink
-      to={{ pathname: `/${props.type}-${props.id}` }}
-      state={{
-        name: props.name,
-        type: props.type,
-        id: props.id,
-        country: props.country,
-        price: props.price,
-        taste: props.taste,
-        image: props.image,
-      }}
-      className="card-wrapper"
-    >
-      <div className="card-container">
-        <div className="card-image-container">
-          <div className="card-image">
-            <img src={props.image} alt={props.name} />
-          </div>
-          <div className="card-product-details-type">
-            <p className="card-product-type">{props.type}</p>
-            <div className="card-product-details-price">
-              <p className="no-margin card-product-details-name">
-                {" "}
-                {props.name}
-              </p>
-              <p className="card-product-details-id">Nr: {props.id}</p>
+    <div>
+      <NavLink
+        to={{ pathname: `/${props.type}-${props.id}` }}
+        state={{
+          name: props.name,
+          type: props.type,
+          id: props.id,
+          country: props.country,
+          price: props.price,
+          taste: props.taste,
+          image: props.image,
+        }}
+        className="card-wrapper"
+        >
+        <div className="card-container">
+          <div className="card-image-container">
+            <div className="card-image">
+              <img src={props.image} alt={props.name} />
             </div>
-            <div className="card-product-country-price">
-              <p className="card-product-country">{props.country}</p>
-              <p className="card-product-price no-margin">
-                {props.price.toFixed(2)}
-              </p>
+            <div className="card-product-details-type">
+              <p className="card-product-type">{props.type}</p>
+              <div className="card-product-details-price">
+                <p className="no-margin card-product-details-name">
+                  {" "}
+                  {props.name}
+                </p>
+                <p className="card-product-details-id">Nr: {props.id}</p>
+              </div>
+                <div className="card-product-country-price">
+                  <p className="card-product-country">{props.country}</p>
+                  <p className="card-product-price no-margin">
+
+                    {
+                      props.price % 1 != 0 ? props.price.toFixed(2) : 
+                      `${props.price}:-`
+                    }
+
+                  </p>
+                </div>
+                <p className="card-product-taste">{props.taste}</p>
+              </div>
             </div>
-            <p className="card-product-taste">{props.taste}</p>
           </div>
-        </div>
-        <button onClick={() => saveToFavorites()}>Save</button>
-      </div>
-    </NavLink>
+        </NavLink>
+      <button onClick={() => saveToFavorites()}>Save</button>
+    </div>
   );
 };
 
