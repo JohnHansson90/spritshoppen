@@ -170,6 +170,7 @@ a {
 
 .card-wrapper {
     display: flex;
+    position: relative;
     background-color: var(--white);
     flex-direction: column;
     border: 1px solid rgba(45, 41, 38, 0.1);
@@ -177,6 +178,18 @@ a {
     box-shadow: rgb(45 41 38 / 10%) 0px 1px 4px;
     transition: transform 0.25s ease-in-out 0s, box-shadow 0.25s ease-in-out 0s;
     color: var(--black);
+}
+
+.card-wrapper > button {
+    border: none;
+    background-color: rgba(161, 144, 144, 0.282);
+    border-radius: 50%;
+    height: 30px;
+    position: absolute;
+    right: 18px;
+    top: 10px;
+    margin-top: .4rem;
+    font-size: 20px;
 }
 
 .card-container {
