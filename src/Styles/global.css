@@ -10,6 +10,12 @@
     --btn-hover: hsl(44, 77%, 41%);
 }
 
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 body {
     height: 100vh;
     width: 100vw;
@@ -55,6 +61,57 @@ a {
     border: none;
     cursor: pointer;
     transition: .3s;
+}
+
+.navbar-favorites-btn {
+    background-color:transparent;
+    border: none;
+}
+
+.navbar-favorites-btn > img {
+    max-width: 32px;
+    max-height: 32px;
+    position: relative;
+}
+
+.fav-counter {
+    position: absolute;
+    top: .4rem;
+    right: .2rem;
+    color: rgb(0, 0, 0);
+    background-color: white;
+    padding: 2px 5px;
+    font-size: 12px;
+    border-radius: 50%;
+}
+
+.fav-card-container {
+    display: flex;
+    background-color: var(--white);
+    padding: .6rem 1.5rem 0;
+}
+
+.fav-card-container > button {
+    border: none;
+    border-radius: 50%;
+    height: 30px;
+    position: absolute;
+    right: 30px;
+    margin-top: .4rem;
+    font-size: 20px;
+}
+
+.fav-card-wrapper {
+    display: flex;
+    flex-grow: 1;
+    position:relative;
+    background-color: var(--white);
+    flex-direction: column;
+    border: 1px solid rgba(45, 41, 38, 0.1);
+    border-radius: 4px;
+    box-shadow: rgb(45 41 38 / 10%) 0px 1px 4px;
+    transition: transform 0.25s ease-in-out 0s, box-shadow 0.25s ease-in-out 0s;
+    color: var(--black);
 }
 
 .rotate {

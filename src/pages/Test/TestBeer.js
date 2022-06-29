@@ -1,9 +1,24 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
+import { useRecoilState } from "recoil";
+import favoritesAtom from "../../atoms/NavbarAtoms";
 // vad är useLocation?
 const TestBeer = () => {
   const location = useLocation();
   const { state } = location;
+  const [favoriteList, setFavoritesList] = useRecoilState(favoritesAtom);
+
+  const saveToFavorites = () => {
+    const newFavoriteList = [...favoriteList];
+    newFavoriteList.push(state);
+    setFavoritesList(newFavoriteList);
+  };
+
+  const removeFromFavorites = () => {
+    const newList = favoriteList.filter((item) => item.id !== state.id);
+    setFavoritesList(newList);
+  };
+
   return (
     <main className="product-wrapper">
       <div className="product-container">
@@ -17,7 +32,15 @@ const TestBeer = () => {
               />
             </div>
             <div className="product-button-container">
-              <button>Spara till lista 🤡</button>
+              {favoriteList.find((item) => item.id === state.id) ? (
+                <button onClick={() => removeFromFavorites()}>
+                  Ta bort från lista 🤡
+                </button>
+              ) : (
+                <button onClick={() => saveToFavorites()}>
+                  Spara till lista 🤡
+                </button>
+              )}
             </div>
           </div>
         </div>
