@@ -24,19 +24,40 @@ const TestBeer = () => {
         <div className="product-type-wrapper">
           <div className="product-type-container">
             <div className="product-type-information-container">
-              <div className="">{state.type}</div>
-              <div className="">{state.name}</div>
-              <div className="product-type-price">{state.price}</div>
-              <div className="">{state.taste}</div>
-              <div className="">alkoholhalt</div>
-              <div className="">Tillverkad i {state.country}</div>
-              <div className="">Brödtext om spriten</div>
-              <div className="">Ikoner</div>
+              <div className="product-type-type">
+                <h4>{state.type}</h4>
+              </div>
+              <div className="product-type-name">
+                <h1>{state.name}</h1>
+              </div>
+              <div className="product-type-made-in">
+                Tillverkad i <strong>{state.country}</strong>
+              </div>
+              <div className="product-type-alcohol">alkoholhalt</div>
+              <div className="product-type-price">
+                <p>{state.price}:-</p>
+              </div>
+              <div className="product-type-taste">
+                {state.taste}
+                <p>
+                  Nyanserad, karaktärsfull, mycket syrlig smak med inslag av
+                  fat, torkad frukt, apelsinskal, nötter, rostat bröd, örter och
+                  stall. Serveras vid 8-10°C som sällskapsdryck eller till
+                  rätter av fisk eller ljust kött.
+                </p>
+              </div>
+
+              <div className="product-type-by-food">
+                <div>🐟</div>
+                <div>🦆</div>
+                <div>🐖</div>
+                <div>🥂</div>
+              </div>
             </div>
-            <div className="product-taste-container">
-              <div>logo 1</div>
-              <div>logo 2</div>
-              <div>logo 3</div>
+            <div className="product-type-taste-container">
+              <p>BESKA</p>
+              <p>FYLLIGHET</p>
+              <p>SÖTMA</p>
             </div>
             <div className="product-type-stores">Handla i butik</div>
           </div>

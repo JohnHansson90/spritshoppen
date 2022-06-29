@@ -64,11 +64,12 @@ a {
 
 /* Måste fixa att den hela tiden ligger bakom navbar */
 @keyframes menuDropDown {
-    0% { 
+    0% {
         transform: translateY(-100%);
     }
-    100% { 
-        transform: translateY(0%); 
+
+    100% {
+        transform: translateY(0%);
     }
 }
 
@@ -151,7 +152,7 @@ a {
     margin: 4px 0px 0px;
     font-size: 12px;
     line-height: 19.2px;
-    color:rgba(45, 41, 38);
+    color: rgba(45, 41, 38);
 }
 
 .card-product-country {
@@ -180,7 +181,7 @@ a {
     line-height: 19px;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-   
+
 }
 
 .card-image-container {
@@ -196,7 +197,7 @@ a {
     justify-content: center;
 }
 
-.card-image > img {
+.card-image>img {
     object-fit: cover;
     height: 104px;
     width: 72px;
@@ -206,7 +207,7 @@ a {
     max-width: 100%;
 }
 
-/* ########### PRODUCTS ########### */ 
+/* ########### PRODUCTS ########### */
 
 
 .product-wrapper {
@@ -216,11 +217,6 @@ a {
     display: block;
     line-height: 1.5;
     outline: none;
-}
-
-.product-image {
-    max-width: 300px;
-    max-height: 252px;
 }
 
 .product-image-wrapper {
@@ -250,7 +246,12 @@ a {
     align-items: center;
 }
 
-.product-button-container > button {
+.product-image {
+    max-width: 300px;
+    max-height: 252px;
+}
+
+.product-button-container>button {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -291,6 +292,39 @@ a {
     max-width: 100%;
 }
 
+.product-type-type {
+    margin: 8px 0px 0 0;
+}
+
+.product-type-type>h4 {
+    margin: 0px;
+    font-size: 12px;
+    line-height: 1.67;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.product-type-name>h1 {
+    font-weight: normal;
+    margin: 0px 0 12px;
+    line-height: 1.33;
+}
+
+.product-type-made-in {
+    margin: 0px 0 5px;
+    margin: 0px;
+    font-family: Roboto-Regular;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.product-type-alcohol {
+    margin: 0px 0 12px;
+    font-size: 14px;
+    line-height: 1.6;
+    white-space: nowrap;
+}
+
 .product-type-price {
     padding: 12px 0px 16px;
     border-bottom: 1px solid rgba(45, 41, 38, 0.1);
@@ -299,7 +333,28 @@ a {
     border-left-color: rgba(45, 41, 38, 0.1);
 }
 
-.product-taste-container {
+.product-type-price>p {
+    margin: 0px;
+    font-size: 28px;
+    line-height: 1.2;
+    letter-spacing: -0.010em;
+}
+
+.product-type-taste {
+    margin: 16px 0px;
+    font-size: 16px;
+    line-height: 1.52;
+}
+
+
+.product-type-by-food {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+
+}
+
+.product-type-taste-container {
     display: flex;
     flex-direction: row;
     justify-content: center;
