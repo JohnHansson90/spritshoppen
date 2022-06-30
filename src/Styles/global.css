@@ -9,6 +9,8 @@
     --black: #1b1b1b;
     --btn-hover: hsl(44, 77%, 41%);
     --fav-red: rgb(212, 69, 69);
+    --rating: rgb(226, 207, 39);
+    --prodDetailsBg: rgb(200, 206, 236);
 }
 
 .center {
@@ -33,6 +35,11 @@ a {
 
 .no-margin {
     margin: 0;
+}
+
+.inline-flex {
+    display: inline-flex;
+    align-items: center;
 }
 
 .navbar-wrapper {
@@ -206,9 +213,17 @@ a {
     color: var(--black);
 }
 
+.card-wrapper-rating {
+    display: inline-flex;
+    align-items: center;
+    padding-left: .5em;
+}
+
 .card-additional-buttons {
     display: flex;
     flex-grow: 1;
+    justify-content: space-between;
+    padding: 0 10px;
 }
 
 .card-additional-buttons-favIcon {
@@ -222,12 +237,13 @@ a {
     top: 10px;
     margin-top: .4rem;
     font-size: 20px;
+    cursor: pointer;
 }
 
 .card-container {
     display: flex;
     flex-grow: 1;
-    padding: 12px 16px;
+    padding: 12px 16px 0;
     flex-direction: column;
     justify-content: center;
 }
@@ -286,6 +302,7 @@ a {
 
 }
 
+
 .card-image-container {
     display: flex;
 }
@@ -333,10 +350,8 @@ a {
     max-width: 1208px;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 24px;
-    padding-right: 24px;
     display: block;
-    padding-bottom: 12px;
+    padding: 12px 24px
 }
 
 .product-image-container-inner {
@@ -381,8 +396,8 @@ a {
     max-width: 1208px;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 24px;
-    padding-right: 24px;
+    padding-left: 12px;
+    padding-right: 12px;
     display: block;
     padding-top: 12px;
 }
@@ -392,6 +407,9 @@ a {
     display: flex;
     flex-direction: column;
     max-width: 100%;
+    background-color: rgb(200, 206, 236);
+    padding: 16px 24px;
+    border-radius: 20px;
 }
 
 .product-type-type {
@@ -444,7 +462,7 @@ a {
 
 .product-type-taste {
     margin: 16px 0px;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1.52;
 }
 
@@ -466,4 +484,31 @@ a {
     border-right-color: rgba(45, 41, 38, 0.1);
     border-left-color: rgba(45, 41, 38, 0.1);
     gap: 2.5rem;
+}
+
+.reviews-card-wrapper {
+    padding: 0px 16px 16px;
+    margin: 1em 0;
+    border-radius: 14px;;
+    border-bottom: 1px solid rgba(45, 41, 38, 0.1);
+    border-top: 1px solid rgba(45, 41, 38, 0.1);
+    border-right-color: rgba(45, 41, 38, 0.1);
+    border-left-color: rgba(45, 41, 38, 0.1);
+    background-color: rgb(245, 210, 210);
+}
+
+.reviews-card-user {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.reviews-card-rating {
+    display: flex;
+    align-items: center;
+}
+
+.reviews-card-comment {
+    font-size: 12px;
 }

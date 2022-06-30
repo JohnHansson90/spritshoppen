@@ -28,6 +28,7 @@ const Card = ({ props }) => {
           price: props.price,
           taste: props.taste,
           image: props.image,
+          reviews: props.reviews
         }}
         className="fav-card-wrapper"
       >
@@ -42,7 +43,12 @@ const Card = ({ props }) => {
             </div>
             <div className="card-product-country-price">
               <p className="card-product-price no-margin">
-                {props.price.toFixed(2)}
+                {
+                  props.price % 1 !== 0 ?
+                  props.price.toFixed(2)
+                  :
+                  `${props.price}:-`
+                }
               </p>
             </div>
           </div>

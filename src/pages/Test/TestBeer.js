@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import favoritesAtom from "../../atoms/NavbarAtoms";
+import Reviews from "../../Components/Reviews/Reviews";
 // vad är useLocation?
 const TestBeer = () => {
   const location = useLocation();
@@ -18,6 +19,8 @@ const TestBeer = () => {
     const newList = favoriteList.filter((item) => item.id !== state.id);
     setFavoritesList(newList);
   };
+
+  const reviews = state.reviews
 
   return (
     <main className="product-wrapper">
@@ -58,7 +61,12 @@ const TestBeer = () => {
               </div>
               <div className="product-type-alcohol">alkoholhalt</div>
               <div className="product-type-price">
-                <p>{state.price}:-</p>
+                <p>{
+                  state.price % 1 !== 0 ?
+                  state.price.toFixed(2)
+                  :
+                  `${state.price}:-`
+                  }</p>
               </div>
               <div className="product-type-taste">
                 {state.taste}
@@ -83,6 +91,11 @@ const TestBeer = () => {
               <p>SÖTMA</p>
             </div>
             <div className="product-type-stores">Handla i butik</div>
+            <div>
+                {
+                  reviews.map((review) => <Reviews key={review.user + Math.random() * reviews.length} props={review}/>)
+                }
+            </div>
           </div>
         </div>
       </div>

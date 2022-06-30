@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import "../../Styles/global.css";
 import { useLocation } from "react-router-dom";
@@ -6,11 +6,15 @@ import { useRecoilState } from "recoil";
 import favoritesAtom from "../../atoms/NavbarAtoms";
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import ArrowRightAltRoundedIcon from '@mui/icons-material/ArrowRightAltRounded';
+import { Tooltip } from "@mui/material";
+import StarRateRoundedIcon from '@mui/icons-material/StarRateRounded';
 
 const Card = ({ props }) => {
-  const location = useLocation();
-  const { state } = location;
+  // const location = useLocation();
+  // const { state } = location;
   const [favoriteList, setFavoritesList] = useRecoilState(favoritesAtom);
+  const [rating, setRating] = useState(0)
 
   const removeFromFavorites = () => {
     const newList = favoriteList.filter((item) => item.id !== props.id);
@@ -23,22 +27,28 @@ const Card = ({ props }) => {
     setFavoritesList(newFavoriteList);
   };
 
+  const getRating = () => {
+    let rating = 0
+    let reviews = props.reviews
+
+    // Plocka ut alla ratings och lägg ihop
+    for(let i = 0; i < reviews.length; i++) {
+      rating += reviews[i].rating
+    }
+
+    // Dela summan i rating med antalet recensioner
+    // Kollar om kvot är jämn (isåfall visa bara heltal) annars visa två decimaler
+    setRating((rating / reviews.length) % 1 !== 0 ? (rating / reviews.length).toFixed(2) : (rating / reviews.length))
+  }
+  
+  useEffect(() => {
+    getRating()
+  }, [])
+
   return (
     // Vad händer i NavLinken?
-    <div>
-      <NavLink
-        to={{ pathname: `/${props.type}-${props.id}` }}
-        state={{
-          name: props.name,
-          type: props.type,
-          id: props.id,
-          country: props.country,
-          price: props.price,
-          taste: props.taste,
-          image: props.image,
-        }}
-        className="card-wrapper"
-      >
+    <div className="card-wrapper">
+      
         <div className="card-container">
           <div className="card-image-container">
             <div className="card-image">
@@ -65,25 +75,60 @@ const Card = ({ props }) => {
             </div>
           </div>
         </div>
-      </NavLink>
+      
+        
       <div className="card-additional-buttons">
-        {
-          favoriteList.find((item) => item.id === props.id) ? 
-          <button
-          className="card-wrapper-button"
-          onClick={() => removeFromFavorites()}
-          >
-            <FavoriteIcon sx={{ color: "var(--fav-red)" }} />
-          </button>
-          : 
-          <button
-            className="card-wrapper-button"
-            onClick={() => saveToFavorites()}
-          >
-            <FavoriteBorderIcon className="card-additional-buttons-favIcon"/>
-          </button>
+        <div className="inline-flex ">
+          {
+            favoriteList.find((item) => item.id === props.id) ? 
+            <Tooltip title="Ta bort favorit" placement="top">
+              <button
+              className="card-wrapper-button"
+              onClick={() => removeFromFavorites()}
+              >
+                <FavoriteIcon sx={{ color: "var(--fav-red)" }} />
+              </button>
+            </Tooltip>
+            : 
+            <Tooltip title="Spara som favorit" placement="top">
+              <button
+                className="card-wrapper-button"
+                onClick={() => saveToFavorites()}
+              >
+                <FavoriteBorderIcon className="card-additional-buttons-favIcon"/>
+              </button>
+            </Tooltip>
+          }
+          
+          <div className="card-wrapper-rating">
+            <Tooltip title="Recensioner och betyg">
+                <StarRateRoundedIcon sx={{color: "var(--rating)", fontSize: "28px"}} />
+            </Tooltip>
+            <p className="no-margin">
+              {rating}
+            </p>
+          </div>
 
-        }
+
+        </div>
+        <Tooltip title="Till drycken" placement="top">
+          <NavLink
+                  to={{ pathname: `/${props.type}-${props.id}` }}
+                  state={{
+                    name: props.name,
+                    type: props.type,
+                    id: props.id,
+                    country: props.country,
+                    price: props.price,
+                    taste: props.taste,
+                    image: props.image,
+                    reviews: props.reviews
+                  }}
+                  
+          >
+              <ArrowRightAltRoundedIcon sx={{ fontSize: "32px" }}/>
+          </NavLink>
+        </Tooltip>
       </div>
     </div>
   );

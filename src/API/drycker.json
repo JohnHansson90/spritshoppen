@@ -6,7 +6,24 @@
         "price": 23.90,
         "taste": "Ljummen och syrlig",
         "type": "beer",
-        "country": "Sverige"
+        "country": "Sverige",
+        "reviews": [
+            {
+                "user": "Börje",
+                "comment": "Väldoftande. Fem stycken krävdes för att göra min fru snyggare.",
+                "rating": 4
+            },
+            {
+                "user": "JohnHansson",
+                "comment": "Nice!",
+                "rating": 5
+            },
+            {
+                "user": "Ulla-Stava",
+                "comment": "Vedervärdig. Dricker hellre baileys",
+                "rating": 1
+            }
+        ]
     },
     {
         "id": 1,
@@ -15,7 +32,24 @@
         "price": 299,
         "taste": "Handsprit möter diskmedel",
         "type": "whiskey",
-        "country": "Sverige"
+        "country": "Sverige",
+        "reviews": [
+            {
+                "user": "Glenn",
+                "comment": "Smörig smak. Halvgod",
+                "rating": 3
+            },
+            {
+                "user": "Börje",
+                "comment": "Rävpiss. Skitäcklig.",
+                "rating": 1
+            },
+            {
+                "user": "Vlad Tepes",
+                "comment": "Passar perfekt till en schysst actionrulle",
+                "rating": 5
+            }
+        ]
     },
     {
         "id": 2,
@@ -24,7 +58,24 @@
         "price": 13.90,
         "taste": "Runt och söt",
         "type": "beer",
-        "country": "Sverige"
+        "country": "Sverige",
+        "reviews": [
+            {
+                "user": "Hansen",
+                "comment": "Bira bira bira, bärs bärs bärs!",
+                "rating": 4
+            },
+            {
+                "user": "Alfred",
+                "comment": "Klassisk bira med stark humlekaraktär",
+                "rating": 4
+            },
+            {
+                "user": "Ingrid",
+                "comment": "Min man blev alkoholist och spelmissbrukare. Gud glömmer inte!",
+                "rating": 1
+            }
+        ]
     },
     {
         "id": 3,
@@ -33,6 +84,23 @@
         "price": 1499,
         "taste": "Badhusvatten med körsbärstoner",
         "type": "whiskey",
-        "country": "Sverige"
+        "country": "Sverige",
+        "reviews": [
+            {
+                "user": "Inga-Lill Fransson",
+                "comment": "Galet god whiskey. Bjöd tjejerna på syjuntan och de blev alla runda under fötterna. Gittan spydde ner in säng. Hehe.",
+                "rating": 5
+            },
+            {
+                "user": "Piss-Persson",
+                "comment": "Gillar den.",
+                "rating": 4
+            },
+            {
+                "user": "Harald Brunöga",
+                "comment": "Smakar som den heter. Pissgott!",
+                "rating": 5
+            }
+        ]
     }
 ]
