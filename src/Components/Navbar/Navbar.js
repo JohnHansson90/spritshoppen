@@ -7,6 +7,8 @@ import { Link } from "react-router-dom";
 import FavCard from "../FavoriteCard/FavCard";
 import Backdrop from '@mui/material/Backdrop';
 import CloseIcon from '@mui/icons-material/Close';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -40,8 +42,20 @@ const Navbar = () => {
     >
       <div className="navbar-container">
         <div className="navbar-logotype">
-          <h3>SpritShoppen</h3>
+          <Link to="/">
+            <h3>SpritShoppen</h3>
+          </Link>
         </div>
+        <div className="center">
+          <button className="navbar-favorites-btn" onClick={showFavorites}>
+            {
+              favoriteList.length > 0 ? 
+            <FavoriteIcon sx={{ fontSize: "34px", color: "var(--fav-red)"}}/>
+            :
+            <FavoriteBorderIcon sx={{ fontSize: "34px"}}/>
+            }
+            <div className="fav-counter">{favoriteList.length}</div>
+          </button>
         <div>
           <button
             className={`navbar-menubutton ${showMenu ? "rotate" : ""}`}
@@ -54,12 +68,7 @@ const Navbar = () => {
             />
           </button>
         </div>
-      </div>
-      <div className="center">
-        <button className="navbar-favorites-btn" onClick={showFavorites}>
-          <img src={favBtn} alt="favorite-button" />
-          <div className="fav-counter">{favoriteList.length}</div>
-        </button>
+        </div>
       </div>
       {showBackdrop && (
           <Backdrop
@@ -73,7 +82,7 @@ const Navbar = () => {
                     favoriteList.length > 0 ?
                         
                         favoriteList.map((favorite) => (
-                            <FavCard props={favorite} key={favorite.id} onClick={showBackdrop}/>
+                            <FavCard props={favorite} key={favorite.id}/>
                         ))
                         
                     :

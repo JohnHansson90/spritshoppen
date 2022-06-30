@@ -38,7 +38,7 @@ const Card = ({ props }) => {
           <div className="card-product-details-type">
             <p className="card-product-type">{props.type}</p>
             <div className="card-product-details-price">
-              <p className="no-margin card-product-details-name"> </p>
+              <p className="no-margin card-product-details-name">{props.name}</p>
             </div>
             <div className="card-product-country-price">
               <p className="card-product-price no-margin">

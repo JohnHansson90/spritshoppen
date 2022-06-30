@@ -40,7 +40,7 @@ a {
     justify-content: center;
     /* background: var(--lightbrown); */
     box-shadow: 0px -20px 11px 18px #1b1b1b;
-    padding: 0 .5em;
+    /* padding: 0 .5em; */
 }
 
 .navbar-container {
@@ -49,6 +49,10 @@ a {
     justify-content: space-between;
     align-items: center;
     position: relative;
+    color: var(--black);
+}
+
+.navbar-logotype > a {
     color: var(--black);
 }
 
@@ -68,17 +72,12 @@ a {
 .navbar-favorites-btn {
     background-color:transparent;
     border: none;
-}
-
-.navbar-favorites-btn > img {
-    max-width: 32px;
-    max-height: 32px;
     position: relative;
 }
 
 .fav-counter {
     position: absolute;
-    top: .4rem;
+    top: -.4rem;
     right: .2rem;
     color: rgb(0, 0, 0);
     background-color: white;
@@ -87,33 +86,19 @@ a {
     border-radius: 50%;
 }
 
-.fav-card-container {
-    display: flex;
-    background-color: var(--white);
-    padding: .6rem 1.5rem 0;
+.navbar-favorites-btn > img {
+    max-width: 32px;
+    max-height: 32px;
+    position: relative;
 }
 
-.fav-card-container > button {
+.navbar-favorites-btn-close {
     border: none;
+    padding: .3em .4em;
     border-radius: 50%;
-    height: 30px;
+    right: 1em;
+    top: 3.5em;
     position: absolute;
-    right: 30px;
-    margin-top: .4rem;
-    font-size: 20px;
-}
-
-.fav-card-wrapper {
-    display: flex;
-    flex-grow: 1;
-    position:relative;
-    background-color: var(--white);
-    flex-direction: column;
-    border: 1px solid rgba(45, 41, 38, 0.1);
-    border-radius: 4px;
-    box-shadow: rgb(45 41 38 / 10%) 0px 1px 4px;
-    transition: transform 0.25s ease-in-out 0s, box-shadow 0.25s ease-in-out 0s;
-    color: var(--black);
 }
 
 .rotate {
@@ -170,13 +155,33 @@ a {
     background-color: var(--btn-hover);
 }
 
-.navbar-favorites-btn-close {
+.fav-card-container {
+    display: flex;
+    background-color: var(--white);
+    padding: .6rem 1.5rem 0;
+}
+
+.fav-card-container > button {
     border: none;
-    padding: .3em .4em;
     border-radius: 50%;
-    right: 1em;
-    top: 3.5em;
+    height: 30px;
     position: absolute;
+    right: 30px;
+    margin-top: .4rem;
+    font-size: 20px;
+}
+
+.fav-card-wrapper {
+    display: flex;
+    flex-grow: 1;
+    position:relative;
+    background-color: var(--white);
+    flex-direction: column;
+    border: 1px solid rgba(45, 41, 38, 0.1);
+    border-radius: 4px;
+    box-shadow: rgb(45 41 38 / 10%) 0px 1px 4px;
+    transition: transform 0.25s ease-in-out 0s, box-shadow 0.25s ease-in-out 0s;
+    color: var(--black);
 }
 
 
