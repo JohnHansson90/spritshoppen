@@ -4,6 +4,7 @@ import "../../Styles/global.css";
 import { useLocation } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import favoritesAtom from "../../atoms/NavbarAtoms";
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 
 const Card = ({ props }) => {
   const location = useLocation();
@@ -47,7 +48,7 @@ const Card = ({ props }) => {
           </div>
         </div>
       </NavLink>
-      <button onClick={() => removeFromFavorites(props.id)}>🧻</button>
+      <button onClick={() => removeFromFavorites(props.id)}><DeleteOutlineIcon sx={{ color: 'var(--fav-red)'}}/></button>
     </div>
   );
 };

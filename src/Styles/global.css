@@ -139,12 +139,17 @@ a {
 }
 
 .navbar-menu {
-    /* position: absolute;
+    position: absolute;
     right: 0;
-    top: 62px; */
-    width: 90%;
+    top: 61px;
+    width: 100%;
     background: var(--white);
     animation: menuDropDown .4s ease-in-out;
+    padding: 1em 0;
+}
+
+.navbar-menu > p {
+    text-align: center;
 }
 
 .navbar-menu ul li a {
@@ -163,6 +168,15 @@ a {
 
 .navbar-menu ul li:hover {
     background-color: var(--btn-hover);
+}
+
+.navbar-favorites-btn-close {
+    border: none;
+    padding: .3em .4em;
+    border-radius: 50%;
+    right: 1em;
+    top: 3.5em;
+    position: absolute;
 }
 
 

@@ -6,6 +6,7 @@ import favBtn from "../../assets/likeBtn.png";
 import { Link } from "react-router-dom";
 import FavCard from "../FavoriteCard/FavCard";
 import Backdrop from '@mui/material/Backdrop';
+import CloseIcon from '@mui/icons-material/Close';
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -64,14 +65,15 @@ const Navbar = () => {
           <Backdrop
           sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
           open={showBackdrop}
-          onClick={closeBackdrop}
+          
         >
             <div className="navbar-menu">
+              <p>Mina favoriter</p>
                 {
                     favoriteList.length > 0 ?
                         
                         favoriteList.map((favorite) => (
-                            <FavCard props={favorite} key={favorite.id} />
+                            <FavCard props={favorite} key={favorite.id} onClick={showBackdrop}/>
                         ))
                         
                     :
@@ -81,6 +83,7 @@ const Navbar = () => {
                     </div>
                 }
             </div>
+            <button onClick={closeBackdrop} className="navbar-favorites-btn-close"><CloseIcon /></button>
         </Backdrop>
       )}
       {showMenu && (
