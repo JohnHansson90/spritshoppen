@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import favoritesAtom from "../../atoms/NavbarAtoms";
@@ -8,6 +8,10 @@ const TestBeer = () => {
   const location = useLocation();
   const { state } = location;
   const [favoriteList, setFavoritesList] = useRecoilState(favoritesAtom);
+  const [commentUser, setCommentUser] = useState('')
+  const [newComment, setNewComment] = useState('')
+  const [newRating, setNewRating] = useState(5)
+  const [commentBody, setCommentBody] = useState({})
 
   const saveToFavorites = () => {
     const newFavoriteList = [...favoriteList];
@@ -19,6 +23,42 @@ const TestBeer = () => {
     const newList = favoriteList.filter((item) => item.id !== state.id);
     setFavoritesList(newList);
   };
+
+  const updateDrink = (newBody) => {
+    fetch(`http://localhost:1337/updateReview/${state.id}`, {
+      method: 'PUT',
+        headers: {
+          'Content-Type':'application/json'
+        },
+        body: JSON.stringify(newBody)
+    })
+  }
+
+  const validateAndSendComment = (e) => {
+    e.preventDefault()
+    if (!(commentUser.length > 3)) {
+      console.log('Namn måste vara minst tre tecken');
+    }
+
+    const newBody = {
+      user: commentUser,
+      comment: newComment,
+      rating: newRating
+    }
+
+    updateDrink(newBody)
+    
+  }
+
+  // const setCommentName = (name) => {
+  //   let user = name
+  //   console.log(user);
+  // }
+
+  // const setComment = (comment) => {
+  //   let newComment = comment
+  //   console.log(newComment);
+  // }
 
   const reviews = state.reviews
 
@@ -90,7 +130,27 @@ const TestBeer = () => {
               <p>FYLLIGHET</p>
               <p>SÖTMA</p>
             </div>
-            <div className="product-type-stores">Handla i butik</div>
+            {/* <div className="product-type-stores">Handla i butik</div> */}
+            <div>
+              Kommentera:
+              <div>
+                <form>
+                  <label>Namn:</label>
+                  <input type="text" required onChange={(e) => setCommentUser(e.target.value)}/>
+                  <label>Betyg:</label>
+                  <select onChange={(e) => setNewRating(e.target.value)}>
+                    <option>5</option>
+                    <option>4</option>
+                    <option>3</option>
+                    <option>2</option>
+                    <option>1</option>
+                  </select>
+                  <label>Kommentar:</label>
+                  <input type="textfield" required onChange={(e) => setNewComment(e.target.value)}/>
+                  <button type="submit" onClick={(e) => validateAndSendComment(e)}>Skicka</button>
+                </form>
+              </div>
+            </div>
             <div>
                 {
                   reviews.map((review) => <Reviews key={review.user + Math.random() * reviews.length} props={review}/>)

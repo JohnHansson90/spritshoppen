@@ -28,7 +28,7 @@ const Card = ({ props }) => {
           price: props.price,
           taste: props.taste,
           image: props.image,
-          reviews: props.reviews
+          reviews: props.reviews       
         }}
         className="fav-card-wrapper"
       >

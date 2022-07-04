@@ -1,0 +1,106 @@
+[
+    {
+        "id": 0,
+        "name": "Bärs",
+        "image": "https://images.unsplash.com/photo-1618183479302-1e0aa382c36b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+        "price": 23.90,
+        "taste": "Ljummen och syrlig",
+        "type": "beer",
+        "country": "Sverige",
+        "reviews": [
+            {
+                "user": "Börje",
+                "comment": "Väldoftande. Fem stycken krävdes för att göra min fru snyggare.",
+                "rating": 4
+            },
+            {
+                "user": "JohnHansson",
+                "comment": "Nice!",
+                "rating": 5
+            },
+            {
+                "user": "Ulla-Stava",
+                "comment": "Vedervärdig. Dricker hellre baileys",
+                "rating": 1
+            }
+        ]
+    },
+    {
+        "id": 1,
+        "name": "Wirre",
+        "image": "https://images.unsplash.com/photo-1620304724320-aaaef7f9f499?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80",
+        "price": 299,
+        "taste": "Handsprit möter diskmedel",
+        "type": "whiskey",
+        "country": "Sverige",
+        "reviews": [
+            {
+                "user": "Glenn",
+                "comment": "Smörig smak. Halvgod",
+                "rating": 3
+            },
+            {
+                "user": "Börje",
+                "comment": "Rävpiss. Skitäcklig.",
+                "rating": 1
+            },
+            {
+                "user": "Vlad Tepes",
+                "comment": "Passar perfekt till en schysst actionrulle",
+                "rating": 5
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Bira",
+        "image": "https://images.unsplash.com/photo-1586993451228-09818021e309?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+        "price": 13.90,
+        "taste": "Runt och söt",
+        "type": "beer",
+        "country": "Sverige",
+        "reviews": [
+            {
+                "user": "Hansen",
+                "comment": "Bira bira bira, bärs bärs bärs!",
+                "rating": 4
+            },
+            {
+                "user": "Alfred",
+                "comment": "Klassisk bira med stark humlekaraktär",
+                "rating": 4
+            },
+            {
+                "user": "Ingrid",
+                "comment": "Min man blev alkoholist och spelmissbrukare. Gud glömmer inte!",
+                "rating": 1
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Piss",
+        "image": "https://images.unsplash.com/photo-1586734565008-fbdbc166fd6c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1216&q=80",
+        "price": 1499,
+        "taste": "Badhusvatten med körsbärstoner",
+        "type": "whiskey",
+        "country": "Sverige",
+        "reviews": [
+            {
+                "user": "Inga-Lill Fransson",
+                "comment": "Galet god whiskey. Bjöd tjejerna på syjuntan och de blev alla runda under fötterna. Gittan spydde ner in säng. Hehe.",
+                "rating": 5
+            },
+            {
+                "user": "Piss-Persson",
+                "comment": "Gillar den.",
+                "rating": 4
+            },
+            {
+                "user": "Harald Brunöga",
+                "comment": "Smakar som den heter. Pissgott!",
+                "rating": 5
+            }
+        ]
+    }
+]
