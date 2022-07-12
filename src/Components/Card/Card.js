@@ -26,17 +26,21 @@ const Card = ({ props }) => {
   };
 
   const getRating = () => {
-    let rating = 0
-    let reviews = props.reviews
+    if (props.reviews) {
+      let reviews = props.reviews
+      let rating = 0
+  
+      // Plocka ut alla ratings och lägg ihop
+      for(let i = 0; i < reviews.length; i++) {
+        rating += reviews[i].rating
+      }
+  
+      // Dela summan i rating med antalet recensioner
+      // Kollar om kvot är jämn (isåfall visa bara heltal) annars visa två decimaler
 
-    // Plocka ut alla ratings och lägg ihop
-    for(let i = 0; i < reviews.length; i++) {
-      rating += reviews[i].rating
+      return setRating((rating / reviews.length) % 1 !== 0 ? (rating / reviews.length).toFixed(2) : (rating / reviews.length))
     }
 
-    // Dela summan i rating med antalet recensioner
-    // Kollar om kvot är jämn (isåfall visa bara heltal) annars visa två decimaler
-    setRating((rating / reviews.length) % 1 !== 0 ? (rating / reviews.length).toFixed(2) : (rating / reviews.length))
   }
   
   useEffect(() => {
@@ -120,7 +124,7 @@ const Card = ({ props }) => {
                     price: props.price,
                     taste: props.taste,
                     image: props.image,
-                    reviews: props.reviews,
+                    reviews: props.reviews || [],
                     _id: props._id
                   }}
                   

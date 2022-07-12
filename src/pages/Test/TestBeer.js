@@ -54,10 +54,10 @@ const TestBeer = () => {
 
   }
 
-  const validateAndSendComment = () => {
-    // e.preventDefault()
-    if (!(commentUser.length > 3)) {
-      console.log('Namn måste vara minst tre tecken');
+  const validateAndSendComment = (e) => {
+    if (commentUser.length < 2) {
+      e.preventDefault()
+      return console.log('Namn måste vara minst tre tecken');
     }
 
     const newBody = {
@@ -152,21 +152,23 @@ const TestBeer = () => {
                       <Rating name="betyg" value={newRating} onChange={(event, newValue) => {setNewRating(newValue)}}/>
                   </div>
                   <div className="review-form">
-                    <TextField id="name" label="Namn" variant="standard" autoComplete="off" onChange={(e) => setCommentUser(e.target.value)}/>
+                    <TextField id="name" label="Namn" variant="standard" autoComplete="off" onChange={(e) => setCommentUser(e.target.value)} required minLength="2" />
                     <TextField id="comment" label="Kommentar" variant="standard" multiline onChange={(e) => setNewComment(e.target.value)}/>
                   </div>
                   <div className="review-send-button">
-                    <Button type="submit" variant="contained" sx={{ fontSize: 12}} endIcon={<SendIcon />} onClick={(e) => validateAndSendComment()}>Skicka</Button>
+                    <Button type="submit" variant="contained" sx={{ fontSize: 12}} endIcon={<SendIcon />} onClick={(e) => validateAndSendComment(e)}>Skicka</Button>
                   </div>
                 </form>
               </div>
             </div>
             <div>
                 {
-                  isDrinkLoaded && currentReviews.length > 0 ?
+                  isDrinkLoaded && currentReviews?.length > 0 ?
                   currentReviews.map((review) => <Reviews key={review.user + Math.random() * currentDrink.reviews.length} props={review}/>)
                   :
-                  'Inga recensioner än. Bli den första att skriva!'
+                  <div className="revies-empty-list-header">
+                    <h4>Ingen har ännu recenserat drycken. <br />Bli den första att skriva vad du tycker!</h4>
+                  </div>
                 }
             </div>
           </div>
