@@ -27,6 +27,12 @@ MongoClient.connect(URL,
         res.send(drinksList)
     })
 
+    app.get('/get_one/:id', async (req, res) => {
+        const oneDrink = await drinksCollection.find({art: Number(req.params.id)}).toArray()
+        console.log(oneDrink)
+        res.send(oneDrink)
+    })
+
 
     app.post('/add_one', async (req, res) => {
         const newBody = req.body
@@ -64,19 +70,19 @@ MongoClient.connect(URL,
     })
 
     app.put('/updateReview/:id', async (req, res) => {
-        const body = req.body
-        const filter = {id: req.params.id, "reviews": body}
-        const updateReview = {
-            $set: {
-                reviews: body
-            }
+        const date = new Date()
+        const newDate = date.toLocaleString('sv-SE')
+        const body = {
+            "user": req.body.user,
+            "comment": req.body.comment,
+            "rating": Number(req.body.rating),
+            "created": newDate
         }
-        drinksCollection.insertOne(filter, updateReview, { upsert: true} )
+        drinksCollection.updateOne({art : Number(req.params.id)}, { $push: { reviews: body } })
+        console.log('Updated reviews on art: ' + req.params.id + ' with "' + body.comment + '"');
+        res.sendStatus(200)
+
     })
-
-    // app.update('/updateReview', async (req, res) => {
-
-    // })
 
     app.listen(PORT, () => {
         console.log('Server är springer på port: ' + PORT);

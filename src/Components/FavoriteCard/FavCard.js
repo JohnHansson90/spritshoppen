@@ -12,23 +12,24 @@ const Card = ({ props }) => {
   const [favoriteList, setFavoritesList] = useRecoilState(favoritesAtom);
 
   const removeFromFavorites = (id) => {
-    const newList = favoriteList.filter((item) => item.id !== id);
+    const newList = favoriteList.filter((item) => item._id !== id);
     setFavoritesList(newList);
   };
   return (
     // Vad händer i NavLinken?
     <div className="fav-card-container">
       <NavLink
-        to={{ pathname: `/${props.type}-${props.id}` }}
+        to={{ pathname: `/${props.type}/${props.art}` }}
         state={{
           name: props.name,
           type: props.type,
-          id: props.id,
+          art: props.art,
           country: props.country,
           price: props.price,
           taste: props.taste,
           image: props.image,
-          reviews: props.reviews       
+          reviews: props.reviews,
+          _id: props._id    
         }}
         className="fav-card-wrapper"
       >
@@ -54,7 +55,7 @@ const Card = ({ props }) => {
           </div>
         </div>
       </NavLink>
-      <button onClick={() => removeFromFavorites(props.id)}><DeleteOutlineIcon sx={{ color: 'var(--fav-red)'}}/></button>
+      <button onClick={() => removeFromFavorites(props._id)}><DeleteOutlineIcon sx={{ color: 'var(--fav-red)'}}/></button>
     </div>
   );
 };

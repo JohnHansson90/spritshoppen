@@ -12,7 +12,7 @@ const Beer = () => {
     <div className="drycker-container">
         {
           allDrinksList.length > 0 ?
-            allDrinksList.filter(item => item.type == "beer").map(dryck => <Card props={dryck} key={dryck.id} />)
+            allDrinksList.filter(item => item.type == "beer").map(dryck => <Card props={dryck} key={dryck._id} />)
           :
           <h3>Du måste fylla servern...</h3>
           }

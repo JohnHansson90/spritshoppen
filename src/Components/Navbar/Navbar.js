@@ -82,7 +82,7 @@ const Navbar = () => {
                     favoriteList.length > 0 ?
                         
                         favoriteList.map((favorite) => (
-                            <FavCard props={favorite} key={favorite.id}/>
+                            <FavCard props={favorite} key={favorite._id}/>
                         ))
                         
                     :

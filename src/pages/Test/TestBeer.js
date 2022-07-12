@@ -1,66 +1,78 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
+// import { useLocation } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import favoritesAtom from "../../atoms/NavbarAtoms";
 import Reviews from "../../Components/Reviews/Reviews";
+import { TextField, Button, Rating } from "@mui/material";
+import SendIcon from '@mui/icons-material/Send';
 // vad är useLocation?
 const TestBeer = () => {
-  const location = useLocation();
-  const { state } = location;
+
   const [favoriteList, setFavoritesList] = useRecoilState(favoritesAtom);
   const [commentUser, setCommentUser] = useState('')
   const [newComment, setNewComment] = useState('')
   const [newRating, setNewRating] = useState(5)
-  const [commentBody, setCommentBody] = useState({})
+  const [currentDrink, setCurrentDrink] = useState([])
+  const [isDrinkLoaded, setIsDrinkLoaded] = useState(false)
+  const [currentReviews, setCurrentReviews] = useState([])
+  const { id } = useParams()
+
+
+  const FETCH_URL = 'http://localhost:1337'
+  useEffect(() => {
+    const fetchOneDrink = async () => {
+      const response = await fetch(`${FETCH_URL}/get_one/${{ id }.id}`)
+      const data = await response.json()
+      setCurrentDrink(data[0])
+      setCurrentReviews(data[0].reviews)
+      setIsDrinkLoaded(true)
+    }
+    fetchOneDrink()
+    
+    }, [])
 
   const saveToFavorites = () => {
     const newFavoriteList = [...favoriteList];
-    newFavoriteList.push(state);
+    newFavoriteList.push(currentDrink);
     setFavoritesList(newFavoriteList);
   };
 
   const removeFromFavorites = () => {
-    const newList = favoriteList.filter((item) => item.id !== state.id);
+    const newList = favoriteList.filter((item) => item.art !== currentDrink.art);
     setFavoritesList(newList);
   };
 
-  const updateDrink = (newBody) => {
-    fetch(`http://localhost:1337/updateReview/${state.id}`, {
+  const updateDrink = async (newBody) => {
+    await fetch(`${FETCH_URL}/updateReview/${currentDrink.art}`, {
       method: 'PUT',
         headers: {
           'Content-Type':'application/json'
         },
-        body: JSON.stringify(newBody)
+        body: JSON.stringify(newBody),
     })
+
   }
 
-  const validateAndSendComment = (e) => {
-    e.preventDefault()
+  const validateAndSendComment = () => {
+    // e.preventDefault()
     if (!(commentUser.length > 3)) {
       console.log('Namn måste vara minst tre tecken');
     }
 
     const newBody = {
-      user: commentUser,
-      comment: newComment,
-      rating: newRating
+      "user": commentUser,
+      "comment": newComment,
+      "rating": newRating
     }
 
     updateDrink(newBody)
+ 
+
     
   }
 
-  // const setCommentName = (name) => {
-  //   let user = name
-  //   console.log(user);
-  // }
 
-  // const setComment = (comment) => {
-  //   let newComment = comment
-  //   console.log(newComment);
-  // }
-
-  const reviews = state.reviews
 
   return (
     <main className="product-wrapper">
@@ -69,13 +81,13 @@ const TestBeer = () => {
           <div className="product-image-container">
             <div className="product-image-container-inner">
               <img
-                src={state.image}
-                alt={state.name}
+                src={currentDrink.image}
+                alt={currentDrink.name}
                 className="product-image"
               />
             </div>
             <div className="product-button-container">
-              {favoriteList.find((item) => item.id === state.id) ? (
+              {favoriteList.find((item) => item._id === currentDrink._id) ? (
                 <button onClick={() => removeFromFavorites()}>
                   Ta bort från lista 🤡
                 </button>
@@ -91,25 +103,25 @@ const TestBeer = () => {
           <div className="product-type-container">
             <div className="product-type-information-container">
               <div className="product-type-type">
-                <h4>{state.type}</h4>
+                <h4>{currentDrink.type}</h4>
               </div>
               <div className="product-type-name">
-                <h1>{state.name}</h1>
+                <h1>{currentDrink.name}</h1>
               </div>
               <div className="product-type-made-in">
-                Tillverkad i <strong>{state.country}</strong>
+                Tillverkad i <strong>{currentDrink.country}</strong>
               </div>
               <div className="product-type-alcohol">alkoholhalt</div>
               <div className="product-type-price">
                 <p>{
-                  state.price % 1 !== 0 ?
-                  state.price.toFixed(2)
+                  currentDrink.price % 1 !== 0 ?
+                  currentDrink.price
                   :
-                  `${state.price}:-`
+                  `${currentDrink.price}:-`
                   }</p>
               </div>
               <div className="product-type-taste">
-                {state.taste}
+                {currentDrink.taste}
                 <p>
                   Nyanserad, karaktärsfull, mycket syrlig smak med inslag av
                   fat, torkad frukt, apelsinskal, nötter, rostat bröd, örter och
@@ -132,28 +144,29 @@ const TestBeer = () => {
             </div>
             {/* <div className="product-type-stores">Handla i butik</div> */}
             <div>
-              Kommentera:
+              <h4 className="reviews-header">Recensioner</h4>
               <div>
                 <form>
-                  <label>Namn:</label>
-                  <input type="text" required onChange={(e) => setCommentUser(e.target.value)}/>
-                  <label>Betyg:</label>
-                  <select onChange={(e) => setNewRating(e.target.value)}>
-                    <option>5</option>
-                    <option>4</option>
-                    <option>3</option>
-                    <option>2</option>
-                    <option>1</option>
-                  </select>
-                  <label>Kommentar:</label>
-                  <input type="textfield" required onChange={(e) => setNewComment(e.target.value)}/>
-                  <button type="submit" onClick={(e) => validateAndSendComment(e)}>Skicka</button>
+                  <div className="review-rating">
+                      <p>Betygsätt drycken:</p>
+                      <Rating name="betyg" value={newRating} onChange={(event, newValue) => {setNewRating(newValue)}}/>
+                  </div>
+                  <div className="review-form">
+                    <TextField id="name" label="Namn" variant="standard" autoComplete="off" onChange={(e) => setCommentUser(e.target.value)}/>
+                    <TextField id="comment" label="Kommentar" variant="standard" multiline onChange={(e) => setNewComment(e.target.value)}/>
+                  </div>
+                  <div className="review-send-button">
+                    <Button type="submit" variant="contained" sx={{ fontSize: 12}} endIcon={<SendIcon />} onClick={(e) => validateAndSendComment()}>Skicka</Button>
+                  </div>
                 </form>
               </div>
             </div>
             <div>
                 {
-                  reviews.map((review) => <Reviews key={review.user + Math.random() * reviews.length} props={review}/>)
+                  isDrinkLoaded && currentReviews.length > 0 ?
+                  currentReviews.map((review) => <Reviews key={review.user + Math.random() * currentDrink.reviews.length} props={review}/>)
+                  :
+                  'Inga recensioner än. Bli den första att skriva!'
                 }
             </div>
           </div>

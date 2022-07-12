@@ -11,13 +11,11 @@ import { Tooltip } from "@mui/material";
 import StarRateRoundedIcon from '@mui/icons-material/StarRateRounded';
 
 const Card = ({ props }) => {
-  // const location = useLocation();
-  // const { state } = location;
   const [favoriteList, setFavoritesList] = useRecoilState(favoritesAtom);
   const [rating, setRating] = useState(0)
 
   const removeFromFavorites = () => {
-    const newList = favoriteList.filter((item) => item.id !== props.id);
+    const newList = favoriteList.filter((item) => item.art !== props.art);
     setFavoritesList(newList);
   }
 
@@ -80,7 +78,7 @@ const Card = ({ props }) => {
       <div className="card-additional-buttons">
         <div className="inline-flex ">
           {
-            favoriteList.find((item) => item.id === props.id) ? 
+            favoriteList.find((item) => item.art === props.art) ? 
             <Tooltip title="Ta bort favorit" placement="top">
               <button
               className="card-wrapper-button"
@@ -113,16 +111,17 @@ const Card = ({ props }) => {
         </div>
         <Tooltip title="Till drycken" placement="top">
           <NavLink
-                  to={{ pathname: `/${props.type}-${props.id}` }}
+                  to={{ pathname: `/${props.type}/${props.art}` }}
                   state={{
                     name: props.name,
                     type: props.type,
-                    id: props.id,
+                    art: props.art,
                     country: props.country,
                     price: props.price,
                     taste: props.taste,
                     image: props.image,
-                    reviews: props.reviews
+                    reviews: props.reviews,
+                    _id: props._id
                   }}
                   
           >

@@ -13,7 +13,7 @@ const Drycker = () => {
       {
         allDrinksList.length > 0 ?
         allDrinksList.map(item =>
-          <Card props={item} key={item.id} />
+          <Card props={item} key={item._id} />
         )
         :
         <h3>Du måste fylla servern...</h3>

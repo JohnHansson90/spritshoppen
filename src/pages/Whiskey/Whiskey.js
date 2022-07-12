@@ -13,7 +13,7 @@ const Whiskey = () => {
         {
           allDrinksList.length > 0 ?
             allDrinksList.filter(item => item.type == "whiskey").map(dryck => 
-                <Card props={dryck} key={dryck.id}/> 
+                <Card props={dryck} key={dryck._id}/> 
             )
             :
           <h3>Du måste fylla servern...</h3>

@@ -37,7 +37,7 @@ const App = () => {
         <Route path="/beer" element={<Beer />} />
         <Route path="/whiskey" element={<Whiskey />} />
         <Route exact path="/" element={<Hem />} />
-        <Route path="/:id/" element={<TestBeer />} />
+        <Route path="/:type/:id/" element={<TestBeer />} />
       </Routes>
     </>
 
