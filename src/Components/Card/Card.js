@@ -107,7 +107,11 @@ const Card = ({ props }) => {
                 <StarRateRoundedIcon sx={{color: "var(--rating)", fontSize: "28px"}} />
             </Tooltip>
             <p className="no-margin">
-              {rating}
+              {
+              Number(rating) > 0 ?
+              Number(rating).toFixed(1)
+              : Number(rating)
+              } {props.reviews ? `(${props.reviews.length})` : ''}
             </p>
           </div>
 
