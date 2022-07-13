@@ -6,6 +6,7 @@ import favoritesAtom from "../../atoms/NavbarAtoms";
 import Reviews from "../../Components/Reviews/Reviews";
 import { TextField, Button, Rating } from "@mui/material";
 import SendIcon from '@mui/icons-material/Send';
+import ExpandMoreRoundedIcon from '@mui/icons-material/ExpandMoreRounded';
 // vad är useLocation?
 const TestBeer = () => {
 
@@ -16,6 +17,7 @@ const TestBeer = () => {
   const [currentDrink, setCurrentDrink] = useState([])
   const [isDrinkLoaded, setIsDrinkLoaded] = useState(false)
   const [currentReviews, setCurrentReviews] = useState([])
+  const [reviewsFormShow, setReviewsFormShow] = useState('hide')
   const { id } = useParams()
 
 
@@ -51,7 +53,6 @@ const TestBeer = () => {
         },
         body: JSON.stringify(newBody),
     })
-
   }
 
   const validateAndSendComment = (e) => {
@@ -59,17 +60,19 @@ const TestBeer = () => {
       e.preventDefault()
       return console.log('Namn måste vara minst tre tecken');
     }
-
     const newBody = {
       "user": commentUser,
       "comment": newComment,
       "rating": newRating
     }
-
     updateDrink(newBody)
- 
-
-    
+  }
+  
+  const showReviewsForm = () => {
+    if(reviewsFormShow === 'hide') {
+      return setReviewsFormShow('show')
+    }
+    return setReviewsFormShow('hide')
   }
 
 
@@ -144,8 +147,8 @@ const TestBeer = () => {
             </div>
             {/* <div className="product-type-stores">Handla i butik</div> */}
             <div>
-              <h4 className="reviews-header">Recensioner</h4>
-              <div>
+              <h4 className="reviews-header">Betygsätt drycken</h4>
+              {/* <div>
                 <form>
                   <div className="review-rating">
                       <p>Betygsätt drycken:</p>
@@ -159,16 +162,34 @@ const TestBeer = () => {
                     <Button type="submit" variant="contained" sx={{ fontSize: 12}} endIcon={<SendIcon />} onClick={(e) => validateAndSendComment(e)}>Skicka</Button>
                   </div>
                 </form>
-              </div>
+              </div> */}
             </div>
             <div>
+                  
+                    <div className="reviews-show-form">
+                      <ExpandMoreRoundedIcon sx={{fontSize: "34x"}} onClick={() => showReviewsForm()}/>
+                    </div>
+                    
+                    <div className={`${reviewsFormShow}`}>
+                      <form>
+                        <div className="review-rating">
+                            
+                            <Rating name="betyg" value={newRating} onChange={(event, newValue) => {setNewRating(newValue)}}/>
+                        </div>
+                        <div className="review-form">
+                          <TextField id="name" label="Namn" variant="standard" autoComplete="off" onChange={(e) => setCommentUser(e.target.value)} required minLength="2" />
+                          <TextField id="comment" label="Kommentar" variant="standard" multiline onChange={(e) => setNewComment(e.target.value)}/>
+                        </div>
+                        <div className="review-send-button">
+                          <Button type="submit" variant="contained" sx={{ fontSize: 12}} endIcon={<SendIcon />} onClick={(e) => validateAndSendComment(e)}>Skicka</Button>
+                        </div>
+                      </form>
+                    
+                  </div>
                 {
                   isDrinkLoaded && currentReviews?.length > 0 ?
                   currentReviews.map((review) => <Reviews key={review.user + Math.random() * currentDrink.reviews.length} props={review}/>)
-                  :
-                  <div className="revies-empty-list-header">
-                    <h4>Ingen har ännu recenserat drycken. <br />Bli den första att skriva vad du tycker!</h4>
-                  </div>
+                  : <div className="revies-empty-list-header"><h4>Ingen har ännu recenserat drycken. <br />Bli den första att skriva vad du tycker!</h4></div>
                 }
             </div>
           </div>

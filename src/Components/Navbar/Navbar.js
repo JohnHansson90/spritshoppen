@@ -43,7 +43,7 @@ const Navbar = () => {
       <div className="navbar-container">
         <div className="navbar-logotype">
           <Link to="/">
-            <h3>SpritShoppen</h3>
+            <h3>SpritGuiden</h3>
           </Link>
         </div>
         <div className="center">

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap');
+
 * {
     box-sizing: border-box;
 }
@@ -51,12 +53,20 @@ a {
     align-items: center;
 }
 
+.show {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.hide {
+    display: none;
+}
+
 .navbar-wrapper {
     display: flex;
     justify-content: center;
-    /* background: var(--lightbrown); */
     box-shadow: 0px -20px 11px 18px #1b1b1b;
-    /* padding: 0 .5em; */
 }
 
 .navbar-container {
@@ -66,10 +76,14 @@ a {
     align-items: center;
     position: relative;
     color: var(--black);
+    padding: .7em 0;
 }
 
-.navbar-logotype > a {
+.navbar-logotype > a > h3 {
+    font-family: 'Dancing Script', cursive;
     color: var(--black);
+    margin: auto;
+    font-size: 26px;
 }
 
 .navbar-menubutton__img {
@@ -499,11 +513,29 @@ a {
     text-align: center;
 }
 
+.reviews-show-form {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(210, 210, 218);
+    width: 45px;
+    height: 40px;
+    margin: auto;
+    align-items: center;
+    border-radius: 35%;
+    cursor: pointer;
+}
+
+.reviews-show-form:hover {
+    background-color: rgb(193, 193, 199);
+}
+
+
 .review-form {
     display: flex;
     flex-direction: column;
     width: 100%;
     margin-bottom: 1em;
+    gap: .5em;
 }
 
 .review-rating {
