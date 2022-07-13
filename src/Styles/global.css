@@ -63,6 +63,11 @@ a {
     display: none;
 }
 
+.vertical-center {
+    display: flex;
+    align-items: center;
+}
+
 .navbar-wrapper {
     display: flex;
     justify-content: center;
