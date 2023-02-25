@@ -9,7 +9,7 @@ const Drycker = () => {
     <div>
       {
         drycker.map(item => 
-          <Card props={item} key={item.name} />
+          <Card props={item} key={item.name}  />
         )
       }
     </div>
