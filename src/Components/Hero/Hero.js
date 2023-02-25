@@ -1,10 +1,10 @@
 import React from 'react'
-import hero from '../../API/hero.json'
+// import beerVideo from '../../assets/Beer.gif'
 
 const Hero = () => {
     return (
-        <div>
-            <img src={hero.img} alt="hero" />
+        <div className="hero-wrapper">
+            {/* <img src={beerVideo} alt="beer hero" width="100%" height="100%"/> */}
         </div>
 
     )
