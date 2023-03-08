@@ -17,7 +17,7 @@ const List = ({prodType}) => {
 
   useEffect(() => {
     fetchProdType()
-  }, [])
+  }, [prodType])
 
   return (
     <div className="drycker-container">

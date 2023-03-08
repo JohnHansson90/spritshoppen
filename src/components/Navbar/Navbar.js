@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import favoritesAtom from "../../atoms/NavbarAtoms";
 import menuBtn from "../../assets/menubtn.png";
@@ -15,15 +15,31 @@ import styles from './Navbar.module.css'
 
 const Navbar = () => {
   const [active, setActive] = useState("")
+  const [scrolled, setScrolled] = useState(false)
 
+  useEffect(() => {
+    let prevSrollPos = 0
+    let currentScrollPos = 0
 
+    window.addEventListener('scroll', (e) => {
+      currentScrollPos = window.scrollY
+
+      if (prevSrollPos - currentScrollPos < 0) {
+        setScrolled(true)
+      } else if (prevSrollPos - currentScrollPos > 0) {
+        setScrolled(false)
+      }
+
+      prevSrollPos = currentScrollPos
+    })
+  }, [])
 
   return (
-    <AppBar sx={{ backgroundColor: "white", padding: ".3em 0 0 0" }}>
+    <AppBar sx={{display: scrolled ? "none" : "flex", backgroundColor: "white"}}>
       <div className={styles.appBarWrapper}>
         <div>
           <Link to="/">
-            <img src={navbarLogo} alt="logo" width={80} style={{margin: 0}}/>
+            <img src={navbarLogo} alt="logo" width={35} />
           </Link>
         </div>
         <div>
@@ -31,7 +47,7 @@ const Navbar = () => {
             {
               navbarLinks.map((nav) => (
                 <li key={nav.id} className={`${active === nav.title ? "activeLink" : "link"}`} onClick={() => setActive(nav.title)}>
-                  <a href={`${nav.id}`}>{nav.title}</a>
+                  <Link to={`/${nav.link}`}>{nav.title}</Link>
                 </li>
               ))
             }

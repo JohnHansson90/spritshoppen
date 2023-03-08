@@ -41,7 +41,6 @@ a:-webkit-any-link {
     color: grey;
 }
 
-
 li {
     list-style: none;
 }
@@ -658,12 +657,12 @@ li {
 .topPicks-grid {
     padding: 1em;
     margin: 3px;
-    display: grid;
-    gap: .4em;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    display: flex;
+    max-width: 700px;
+    flex-wrap: wrap;
+    margin: auto;
     justify-content: center;
-    background-color: var(--white);
+    background-color: white;
     border-radius: 15px;
 }
 

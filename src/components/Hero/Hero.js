@@ -1,10 +1,11 @@
 import React from 'react'
-// import beerVideo from '../../assets/Beer.gif'
+import {logo} from '../../assets'
+import styles from './Hero.module.css'
 
 const Hero = () => {
     return (
-        <div className="hero-wrapper">
-            {/* <img src={beerVideo} alt="beer hero" width="100%" height="100%"/> */}
+        <div className={styles.wrapper}>
+            <img src={logo} alt="hero" />
         </div>
 
     )
