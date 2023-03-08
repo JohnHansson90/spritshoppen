@@ -104,7 +104,7 @@
         "type": "Maltwhiskey",
         "countryFlag": "🇬🇧",
         "country": "Storbritannien",
-        "prodType": "whiskey",
+        "prodType": "spirits",
         "reviews": []
     },
     {
@@ -116,7 +116,7 @@
         "type": "Blended Whiskey",
         "countryFlag": "🇸🇪",
         "country": "Sverige",
-        "prodType": "whiskey",
+        "prodType": "spirits",
         "reviews": []
     },
     {
@@ -128,7 +128,7 @@
         "type": "Blended Whiskey",
         "countryFlag": "🇨🇦",
         "country": "Kanada",
-        "prodType": "whiskey",
+        "prodType": "spirits",
         "reviews": []
     },
     {
@@ -140,7 +140,7 @@
         "type": "Blended Whiskey",
         "countryFlag": "🇬🇧",
         "country": "Storbritannien",
-        "prodType": "whiskey",
+        "prodType": "spirits",
         "reviews": []
     },
     {
@@ -152,7 +152,7 @@
         "type": "Maltwhiskey",
         "countryFlag": "🇬🇧",
         "country": "Storbritannien, Skottland",
-        "prodType": "whiskey",
+        "prodType": "spirits",
         "reviews": []
     },
     {
@@ -212,7 +212,7 @@
         "type": "Mörk rom",
         "countryFlag": "🇩🇴",
         "country": "Dominikanska Republiken",
-        "prodType": "rom",
+        "prodType": "spirits",
         "reviews": []
 }
 ]

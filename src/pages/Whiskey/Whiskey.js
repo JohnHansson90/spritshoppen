@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import Card from '../../Components/Card/Card'
+import { Card } from '../../components'
 import countriesObj from '../../API/countries'
 import { MenuItem, Select, FormControl } from '@mui/material'
 

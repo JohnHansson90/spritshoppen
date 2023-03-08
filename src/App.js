@@ -2,13 +2,8 @@ import React, { useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { useRecoilState } from 'recoil'
 import allDrinksAtom from './atoms/DrinksAtom'
-import Footer from './Components/Footer/Footer'
-import Navbar from './Components/Navbar/Navbar'
-import Beer from './pages/Beer/Beer'
-import Drycker from './pages/Drycker/Drycker'
-import Hem from './pages/Hem/Hem'
-import TestBeer from './pages/Test/TestBeer'
-import Whiskey from './pages/Whiskey/Whiskey'
+import {Navbar, Footer } from './components'
+import { List, Drycker, Hem, Spirits, TestBeer } from './pages'
 import './Styles/global.css'
 
 const App = () => {
@@ -29,14 +24,16 @@ const App = () => {
   }, [])
 
   return (
-    <>
+    <div>
       <Navbar />
 
 
       <Routes>
         <Route path="/drycker" element={<Drycker props={ALL_DRINKS_URL}/>} />
-        <Route path="/beer" element={<Drycker props={'http://localhost:1337/all/beer'}/>} />
-        <Route path="/whiskey" element={<Drycker props={'http://localhost:1337/all/whiskey'}/>} />
+        <Route path="/beer" element={<List prodType={'beer'}/>} />
+        <Route path="/spirits" element={<List prodType={'spirits'} />} />
+        <Route path="/wine" element={<List prodType={'wine'} />} />
+        {/* <Route path="/whiskey" element={<List prodType={'whiskey'} />} /> */}
         {/* <Route path="/beer" element={<Beer />} />
         <Route path="/whiskey" element={<Whiskey />} /> */}
         <Route exact path="/" element={<Hem />} />
@@ -44,7 +41,7 @@ const App = () => {
       </Routes>
 
       <Footer />
-    </>
+    </div>
 
   )
 }

@@ -1,6 +1,5 @@
 import React from 'react'
-import Hero from '../../Components/Hero/Hero'
-import TopPicks from '../../Components/TopPicks/TopPicks'
+import { Hero, TopPicks } from '../../components'
 
 const Hem = () => {
     return (

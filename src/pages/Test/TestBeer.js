@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import favoritesAtom from "../../atoms/NavbarAtoms";
-import Reviews from "../../Components/Reviews/Reviews";
+import {Reviews} from "../../components";
 import { TextField, Button, Rating } from "@mui/material";
 import SendIcon from '@mui/icons-material/Send';
 import ExpandMoreRoundedIcon from '@mui/icons-material/ExpandMoreRounded';

@@ -56,6 +56,21 @@ MongoClient.connect(URL,
         res.send(allProdType)
     })
 
+    app.get('/beer', async (req, res) => {
+        const beerList = await drinksCollection.find({prodType: 'öl'}).toArray()
+        res.send(beerList)
+    })
+
+    app.get('/spirits', async (req, res) => {
+        const spirits = await drinksCollection.find({prodType: 'spirits'}).toArray()
+        res.send(spirits)
+    })
+
+    app.get('/wine', async (req, res) => {
+        const wines = await drinksCollection.find({prodType: 'vin'}).toArray()
+        res.send(wines)
+    })
+
     app.get('/all', async (req, res) => {
         const drinksList = await drinksCollection.find().toArray()
         res.send(drinksList)

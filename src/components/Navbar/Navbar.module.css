@@ -1,0 +1,11 @@
+.appBarWrapper {
+    display: inline-flex;
+    justify-content: space-between;
+    padding: 0 1em 0 0;
+    align-items: center;
+}
+
+.menu {
+    display: inline-flex;
+    gap: 1em;
+}
