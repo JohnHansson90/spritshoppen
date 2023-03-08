@@ -39,7 +39,7 @@ const Navbar = () => {
       <div className={styles.appBarWrapper}>
         <div>
           <Link to="/">
-            <img src={navbarLogo} alt="logo" width={35} />
+            <img src={navbarLogo} alt="logo" width={25} />
           </Link>
         </div>
         <div>
