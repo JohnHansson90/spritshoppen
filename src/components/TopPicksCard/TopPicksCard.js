@@ -28,7 +28,7 @@ const TopPicksCard = ({props}) => {
         <Link to={linkToDrink}>
           <div className={styles.imageContainer}>
             <img src={props.image} alt={props.name} width="100px" height="100px" className={styles.image} />
-            <p className="topPicks-image-flag">{props.countryFlag}</p>
+            {/* <p className="topPicks-image-flag">{props.countryFlag}</p> */}
           </div>
             <div className={styles.cardInfo}>
             <p className={styles.cardTitle}>{props.name}</p>

@@ -1,4 +1,11 @@
+.navbar {
+    display: flex;
+}
+
 .appBarWrapper {
+    width: 100%;
+    background-color: white;
+    position: fixed;
     display: inline-flex;
     justify-content: space-between;
     padding: .5em 1em;
@@ -8,4 +15,13 @@
 .menu {
     display: inline-flex;
     gap: 1em;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    background-color: white;
+    display: flex;
 }

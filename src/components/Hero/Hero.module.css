@@ -1,7 +1,7 @@
 .wrapper {
     display: flex;
     /* max-width: 70%; */
-    margin-top: 4em;
+    margin-top: 100px;
     justify-content: center;
     align-items: center;
 }

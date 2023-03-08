@@ -662,6 +662,7 @@ li {
     flex-wrap: wrap;
     margin: auto;
     justify-content: center;
+    gap: 1em;
     background-color: white;
     border-radius: 15px;
 }

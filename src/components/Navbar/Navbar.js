@@ -25,9 +25,9 @@ const Navbar = () => {
       currentScrollPos = window.scrollY
 
       if (prevSrollPos - currentScrollPos < 0) {
-        setScrolled(true)
+        setScrolled("hide")
       } else if (prevSrollPos - currentScrollPos > 0) {
-        setScrolled(false)
+        setScrolled("show")
       }
 
       prevSrollPos = currentScrollPos
@@ -35,7 +35,7 @@ const Navbar = () => {
   }, [])
 
   return (
-    <AppBar sx={{display: scrolled ? "none" : "flex", backgroundColor: "white"}}>
+    <nav className={`${scrolled}`}>
       <div className={styles.appBarWrapper}>
         <div>
           <Link to="/">
@@ -55,7 +55,7 @@ const Navbar = () => {
         </div>
       </div>
 
-    </AppBar>
+    </nav>
   );
 };
 

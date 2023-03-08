@@ -25,7 +25,7 @@ const App = () => {
 
   return (
       <BrowserRouter>
-        <div style={{display: "flex", flexDirection: "column", paddingTop: "5em"}}>
+        <div style={{display: "flex", flexDirection: "column"}}>
           <div>
             <Navbar />
           </div>
